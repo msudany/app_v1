@@ -1,0 +1,56 @@
+[Users]
+*id
+name
+email
+password
+role
+profile_picture
+
+[Authors]
+*id
+name
+bio
+profile_picture
+user_id
+
+[Books]
+*id
+title
+author_id
+category_id
+summary
+rating
+page_count
+
+[Categories]
+*id
+name
+
+[Shelves]
+*id
+user_id
+book_id
+status
+
+[Reviews]
+*id
+user_id
+book_id
+rating
+review_text
+
+[Reports]
+*id
+user_id
+reported_entity_id
+reason
+status
+
+Users.id +--o{ Authors.user_id
+Authors.id +--o{ Books.author_id
+Categories.id +--o{ Books.category_id
+Users.id +--o{ Shelves.user_id
+Books.id +--o{ Shelves.book_id
+Users.id +--o{ Reviews.user_id
+Books.id +--o{ Reviews.book_id
+Users.id +--o{ Reports.user_id
